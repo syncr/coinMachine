@@ -1,0 +1,54 @@
+body {
+  font-size: 2.0em;
+  background: #ccc;
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+select, input{
+  width:200px;
+}
+
+input {
+  border: inset #e9e9e9 1px;
+}
+
+.jumbotron {
+  background: #220048;
+  color: #fe664f;
+  padding-left: 0;
+}
+
+.form-group {
+  padding: 10px 0 0 0;
+}
+
+#coinCounter {
+  padding-top: 20px;
+}
+
+.pullRight {
+  float: right;
+  margin-top:-10px;
+}
+
+
+
+#missingCoinSelector {
+  display: none;
+}
+
+#result {
+  display: none;
+  margin-top:100px;
+  color: #0096e8;
+  font-weight: 800;
+  text-align: center;
+  background: #d9d9d9;
+  border:1px solid #aaa;
+  border-radius:3px;
+}
