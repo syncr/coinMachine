@@ -1,6 +1,3 @@
-
-//global variables required by both jQuery and changeMaker function
-//pass in change, missingCoin;
 function changeMaker(change, missingCoin) {
   var coinValues = [25, 10, 5, 1];
   var coinage = ['quarter(s)','dime(s)','nickel(s)','penny(s)'];
@@ -8,15 +5,16 @@ function changeMaker(change, missingCoin) {
   var userChange =[];
   var i=0;
 
+//if else to handle incoming missingCoin value and to splice out excess array positions  
   if (missingCoin === 0) {
-    coinValues.splice(0,1);
-    coinage.splice(0,1);
+    coinValues.splice(missingCoin,1);
+    coinage.splice(missingCoin,1);
   } else if (missingCoin === 1){
-    coinValues.splice(1,1);
-    coinage.splice(1,1);
+    coinValues.splice(missingCoin,1);
+    coinage.splice(missingCoin,1);
   } else if (missingCoin === 2){
-    coinValues.splice(2,1);
-    coinage.splice(2,1);
+    coinValues.splice(missingCoin,1);
+    coinage.splice(missingCoin,1);
   } 
 
   coinValues.forEach(function(coinValue){
@@ -26,9 +24,6 @@ function changeMaker(change, missingCoin) {
     i++;
   });
 
-//if else to handle incoming missingCoin value and to splice
-//coinValues.splice(missingCoin,1);
-  
   console.log(missingCoin);
   var totalChange = userChange.join(", ");
   return totalChange;
@@ -40,28 +35,10 @@ $(document).ready(function(){
   $('select[name=missingCoinSelector]').change(function () {
     if ($(this).val() === 'Quarters') {
       missingCoin = 0;
-      //console.log(missingCoin);
-      // coinValues = [25, 10, 5, 1];
-      // coinage = ['quarter(s)','dime(s)','nickel(s)','penny(s)'];
-      // coinValues.splice(0,1);
-      // coinage.splice(0,1);
-
     } else if ($(this).val() === 'Dimes') {
       missingCoin = 1;
-      //console.log(missingCoin);
-      // coinValues = [25, 10, 5, 1];
-      // coinage = ['quarter(s)','dime(s)','nickel(s)','penny(s)'];
-      // coinValues.splice(1,1);
-      // coinage.splice(1,1);
-
     } else if ($(this).val() === 'Nickels') {
       missingCoin = 2;
-      //console.log(missingCoin);
-      // coinValues = [25, 10, 5, 1];
-      // coinage = ['quarter(s)','dime(s)','nickel(s)','penny(s)'];
-      // coinValues.splice(2,1);
-      // coinage.splice(2,1);
-
     } else missingCoin = -1;
   }) 
   
@@ -71,7 +48,6 @@ $(document).ready(function(){
     $('.moneyBack').text(moneyBack);
     $('#result').show(400);
     event.preventDefault();
-
   });
 
   $('select[name=coinMissing]').change(function () {
